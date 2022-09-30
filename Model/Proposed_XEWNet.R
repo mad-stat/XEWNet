@@ -1,4 +1,4 @@
-#' @title Ensemble Wavelet Neural Network with Exogenous Variables for Time Series Forecasting
+#' @title Ensemble Wavelet Neural Network with Exogenous Variables for Time Series Forecasting (XEWNet)
 
 #' A wavelet based auto-regressive neural network architecture for forecasting  
 #' non-stationary, non-linear, and long-term dependent time series with exogenous 
@@ -14,6 +14,7 @@
 #' The model generates one-step ahead forecast, multi-step ahead forecast is computed recuursively 
 
 #' @param y A processed target time series object that contains data to be analyzed, for training.
+#' @param xreg_tr Exogeneous time series object for training.
 #' @param Waveletlevels A predefined \code{integer} specifying the level of wavelet decomposition. 
 #' Option: floor(log (base e) length(train_set)) (default).
 #' @param boundary A string indicating the boundary condition of wavelet decomposition.
@@ -22,9 +23,9 @@
 #' @param FastFlag A logical indicator denoting the application of pyramid algorithm.
 #' Options. "TRUE" (default), "FALSE".
 #' @param MaxARParam An \code{integer} indicating the maximum number of lagged observations modeled in 
-#' the EWNet architecture.  
+#' the XEWNet architecture.  
 #' @param size An \code{integer} denoting the number of hidden nodes in the single hidden layer.
-#' Default: \code{size} = (\code{MaxARParam}+1)/2, to ensure stable learning.
+#' Default: \code{size} = \code{MaxARParam}/2+1, to ensure stable learning.
 #' @param repeats An \code{integer} representing the number of repetations of the neural network.
 #' Default: 500.
 #' @param: NForecast Length of the forecast horizon, an \code{integer} value.
